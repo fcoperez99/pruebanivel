@@ -1,25 +1,47 @@
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
+import './App.css';
+import axios from 'axios'; 
+import { Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
+import { Component } from 'react';
+
+const url = "https://jsonplaceholder.typicode.com/users"
+
+class App extends Component {
+state={
+  data:[]
+}
+
+peticionGet=()=>{
+  axios.get(url).then(response=>{
+    console.log(response.data);
+  })
+}
+
+  componentDiMount(){
+    this.peticionGet();
+  }
+
+  render(){
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <br/>
+      <button>Añadir</button>
+      <br/>
+      <table>
+      <thead>
+        <tr>
+          <th>1</th>
+          <th>2</th>
+          <th>3</th>
+          <th>4</th>
+        </tr>
+      </thead>
+      <tbody>
+
+      </tbody>
+      </table>
     </div>
   );
 }
-
+}
 export default App;
